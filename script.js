@@ -1,26 +1,40 @@
-let rewek = document.querySelector(`#rewek`);
-let orlov = document.querySelector(`#orlov`);
-let broski = document.querySelector(`#broski`);
-let moneta = document.querySelector(`#moneta`);
-brosok = 0;
-rewwka= 0;
-orell= 0;
-moneta.addEventListener(`click`, function () {
-  let random = Math.floor(Math.random() * 2);
-  if (random === 0) {
-    brosok++;
-    orell++;
-    moneta.src = "orel.png";
-    broski.textContent = `${brosok}`;
-    console.log(broski);
-    console.log(typeof `broski`);
-    orlov.textContent = `${orell}`;
-  } else if (random === 1) {
-    moneta.src = `rewka.png`;
-    brosok++;
-    broski.textContent = `${brosok}`;
-    rewwka++;
-    rewek.textContent=`${rewwka}`
+let counterValue = document.querySelector(`#countervalue`);
+let btn = document.querySelector(`#btn`);
+let games = 0;
+let quessNumber = document.querySelector(`#quessnumber`);
+let randomNumber = Math.ceil(Math.random() * 100);
+let value = document.querySelector(`#value`);
+let div = document.querySelector(".foruser");
+let newgamebtn = document.querySelector(`.newgame`);
+let gamefinish = 0;
+console.log(randomNumber)
+
+let game = () => {
+  games++;
+
+  if (quessNumber.value > randomNumber) {
+    value.textContent = `Выберите число меньше`;
+  } else if (quessNumber.value < randomNumber) {
+    value.textContent = `Выберите число больше`;
+  } else if (quessNumber.value == randomNumber) {
+    value.textContent = `Угадал за ${games} ходов`;
+    div.classList.add("d-none");
+    newgamebtn.classList.remove(`d-none`);
+    gamefinish++;
+    counterValue.textContent = `${gamefinish}`;
   }
-  console.log(random);
-});
+};
+
+let gameAgain = () => {
+  div.classList.remove("d-none");
+  newgamebtn.classList.add(`d-none`);
+  quessNumber.value = ``;
+  games = 0;
+  value.textContent = `-`;
+  randomNumber = Math.ceil(Math.random() * 100);
+  console.log(randomNumber);
+};
+
+btn.addEventListener(`click`, game);
+
+newgamebtn.addEventListener(`click`, gameAgain);

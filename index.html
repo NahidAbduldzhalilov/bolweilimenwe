@@ -8,18 +8,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div class="container">
-      <h2>Орел или решка</h2>
-      <img id="moneta" src="rewka.png" alt="решка" />
-      <p>
-        Бросков: <span id="broski">0</span>, орлов: <span id="orlov">0</span>,
-        решек: <span id="rewek">0</span>
-      </p>
+    <div class="maincontent">
+      <h1>Угадай число</h1>
+      <p id="intro">Я загадал число от 1 до 100, ты должен угадать это число</p>
+      <div class="foruser">
+        <input id="quessnumber" type="text" />
+        <button id="btn">Угадать</button>
+      </div>
+      <p id="value">-</p>
+      <div class="newgame d-none">
+        <button id="startagain">Начать новую</button>
+      </div>
+      <p id="counter">Сыграно игр : <span id="countervalue"> 0</span></p>
     </div>
   </body>
   <script src="script.js"></script>
